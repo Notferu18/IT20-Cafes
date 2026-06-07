@@ -11,6 +11,10 @@ module.exports = {
           cream: '#F5E6C8',
           light: '#FAF3E0',
         }
+      },
+      fontFamily: {
+        georgia: ['Georgia', 'serif'],
+        arial: ['Arial', 'sans-serif'],
       }
     },
   },
