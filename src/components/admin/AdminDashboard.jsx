@@ -4,18 +4,20 @@ import MenuManager from './MenuManager';
 import InventoryPanel from './InventoryPanel';
 import UserManager from './UserManager';
 import ReportsPanel from './ReportsPanel';
+import ForecastWidget from './ForecastWidget';
 
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
   const [activePage, setActivePage] = useState('dashboard');
 
   const navItems = [
-    { key: 'dashboard',  label: 'Dashboard',  icon: '📊' },
-    { key: 'menu',       label: 'Menu',        icon: '🍽️' },
-    { key: 'inventory',  label: 'Inventory',   icon: '📦' },
-    { key: 'users',      label: 'Users',       icon: '👥' },
-    { key: 'reports',    label: 'Reports',     icon: '📈' },
-  ];
+  { key: 'dashboard', label: 'Dashboard', icon: '📊' },
+  { key: 'menu',      label: 'Menu',      icon: '🍽️' },
+  { key: 'inventory', label: 'Inventory', icon: '📦' },
+  { key: 'users',     label: 'Users',     icon: '👥' },
+  { key: 'reports',   label: 'Reports',   icon: '📈' },
+  { key: 'forecast',  label: 'Forecast',  icon: '🤖' }, 
+];
 
   const renderPage = () => {
     switch (activePage) {
@@ -23,6 +25,7 @@ export default function AdminDashboard() {
       case 'inventory': return <InventoryPanel />;
       case 'users':     return <UserManager />;
       case 'reports':   return <ReportsPanel />;
+      case 'forecast':  return <ForecastWidget />;
       default:          return <DashboardHome />;
     }
   };
@@ -80,7 +83,7 @@ export default function AdminDashboard() {
         </div>
 
         <div className="p-8">
-          {renderPage()}
+          {renderPage() }
         </div>
       </main>
     </div>
